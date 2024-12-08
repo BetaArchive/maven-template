@@ -19,7 +19,6 @@ import static org.example.util.ColorUtil.translate;
  * either a player or the server console.
  */
 public class AboutUtil {
-
     private static final Logger logger = getServer().getLogger();
 
     /**
@@ -41,11 +40,8 @@ public class AboutUtil {
 
         boolean isExperimental = isExperimentalVersion(version);
 
-        if (sender instanceof Player) {
-            sendPlayerInfo((Player) sender, name, version, description, website, authors, isExperimental);
-        } else {
-            sendConsoleInfo(name, version, description, website, authors, isExperimental);
-        }
+        if (sender instanceof Player) sendPlayerInfo((Player) sender, name, version, description, website, authors, isExperimental);
+        else sendConsoleInfo(name, version, description, website, authors, isExperimental);
     }
 
     /**
@@ -58,9 +54,7 @@ public class AboutUtil {
      * @return a formatted string of authors, or {@code null} if the list is empty or {@code null}
      */
     private static String formatAuthors(List<String> authorsList) {
-        if (authorsList == null || authorsList.isEmpty()) {
-            return null;
-        }
+        if (authorsList == null || authorsList.isEmpty()) return null;
         return authorsList.size() == 1 ? authorsList.get(0) : authorsList.stream()
                 .map(author -> "&e" + author)
                 .collect(Collectors.joining("&7, &e"));
@@ -140,9 +134,7 @@ public class AboutUtil {
      * @param message the message to send, or {@code null} if no message should be sent
      */
     private static void outputMessage(Player player, String prefix, String message) {
-        if (message != null) {
-            player.sendMessage(translate(prefix + message));
-        }
+        if (message != null) player.sendMessage(translate(prefix + message));
     }
 
     /**
@@ -151,9 +143,7 @@ public class AboutUtil {
      * @param message the message to log, or {@code null} if no message should be logged
      */
     private static void outputMessage(String message) {
-        if (message != null) {
-            logger.info(message);
-        }
+        if (message != null) logger.info(message);
     }
 
     /**
@@ -163,8 +153,6 @@ public class AboutUtil {
      * @param message the message to log, or {@code null} if no message should be logged
      */
     private static void outputMessage(String prefix, String message) {
-        if (message != null) {
-            logger.info(prefix + message);
-        }
+        if (message != null) logger.info(prefix + message);
     }
 }

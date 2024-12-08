@@ -15,7 +15,6 @@ import static org.example.util.ColorUtil.translate;
  * sender's type (player or console).
  */
 public class AccessUtil {
-
     private static final Logger logger = getServer().getLogger();
 
     /**
@@ -30,18 +29,14 @@ public class AccessUtil {
      * @return {@code true} if the sender has the permission or is an operator; {@code false} otherwise
      */
     public static boolean hasPermission(CommandSender sender, String permission, String message) {
-        if (!(sender instanceof Player)) {
-            return true;
-        }
+        if (!(sender instanceof Player)) return true;
 
         boolean hasPermission = sender.hasPermission(permission);
         boolean isOp = sender.isOp();
         if (!(hasPermission || isOp)) {
             sender.sendMessage(translate(String.format("&c%s", message)));
             return false;
-        } else {
-            return true;
-        }
+        } else return true;
     }
 
     /**
@@ -55,9 +50,7 @@ public class AccessUtil {
      * @return {@code true} if the sender has the permission or is an operator; {@code false} otherwise
      */
     public static boolean hasPermission(CommandSender sender, String permission) {
-        if (!(sender instanceof Player)) {
-            return true;
-        }
+        if (!(sender instanceof Player)) return true;
 
         boolean hasPermission = sender.hasPermission(permission);
         boolean isOp = sender.isOp();
@@ -78,8 +71,6 @@ public class AccessUtil {
         if (!(sender instanceof Player)) {
             logger.info("You must be in-game to run this command.");
             return true;
-        } else {
-            return false;
-        }
+        } else return false;
     }
 }

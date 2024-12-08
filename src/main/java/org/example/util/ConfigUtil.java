@@ -21,7 +21,6 @@ import static org.bukkit.Bukkit.getServer;
  * <b>Note:</b> This class allows for flexible management of multiple configuration files, specified by their file name.
  */
 public class ConfigUtil extends Configuration {
-
     private final File configFile;
     private final String pluginName;
     private static final Logger logger = getServer().getLogger();
@@ -56,9 +55,7 @@ public class ConfigUtil extends Configuration {
     public void load() {
         createParentDirectories();
 
-        if (!configFile.exists()) {
-            copyDefaultConfig();
-        }
+        if (!configFile.exists()) copyDefaultConfig();
 
         try {
             super.load();
@@ -89,7 +86,7 @@ public class ConfigUtil extends Configuration {
      * or copied due to an {@link IOException}.
      */
     private void copyDefaultConfig() {
-        String resourcePath = "/" + configFile.getName(); // Ensure correct resource path for the file
+        String resourcePath = "/" + configFile.getName();
 
         try (InputStream input = getClass().getResourceAsStream(resourcePath)) {
             if (input == null) {

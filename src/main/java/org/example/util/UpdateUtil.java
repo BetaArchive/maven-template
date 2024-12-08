@@ -21,7 +21,6 @@ import static org.bukkit.Bukkit.getServer;
  * It logs messages indicating whether an update is available or if the plugin is up to date.
  */
 public class UpdateUtil {
-
     private static final Logger logger = getServer().getLogger();
 
     /**
@@ -57,9 +56,7 @@ public class UpdateUtil {
             BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuilder content = new StringBuilder();
             String inputLine;
-            while ((inputLine = in.readLine()) != null) {
-                content.append(inputLine);
-            }
+            while ((inputLine = in.readLine()) != null) content.append(inputLine);
             in.close();
 
             String responseBody = content.toString();
@@ -69,9 +66,7 @@ public class UpdateUtil {
         } catch (IOException | URISyntaxException e) {
             logger.severe(String.format("[%s] Exception occurred while checking for a new version: %s", pdf.getName(), e.getMessage()));
         } finally {
-            if (connection != null) {
-                connection.disconnect();
-            }
+            if (connection != null) connection.disconnect();
         }
     }
 
@@ -84,11 +79,11 @@ public class UpdateUtil {
      * @param responseCode the HTTP response code received from the GitHub API
      */
     private static void handleResponseError(String pluginName, int responseCode) {
-        if (responseCode == 403 || responseCode == 429) {
+        if (responseCode == 403 || responseCode == 429)
             logger.warning(String.format("[%s] Rate limited, can't check for a new plugin version. This should resolve itself within an hour.", pluginName));
-        } else {
+        else
             logger.warning(String.format("[%s] Unexpected response code: %s. Unable to check for a new plugin version.", pluginName, responseCode));
-        }
+
     }
 
     /**
@@ -103,15 +98,11 @@ public class UpdateUtil {
     private static String getLatestVersion(String responseBody) {
         String tagNameField = "\"tag_name\":\"";
         int tagIndex = responseBody.indexOf(tagNameField);
-        if (tagIndex == -1) {
-            return null;
-        }
+        if (tagIndex == -1) return null;
 
         int startIndex = tagIndex + tagNameField.length();
         int endIndex = responseBody.indexOf("\"", startIndex);
-        if (endIndex == -1) {
-            return null;
-        }
+        if (endIndex == -1) return null;
 
         return responseBody.substring(startIndex, endIndex);
     }
@@ -137,8 +128,6 @@ public class UpdateUtil {
             String downloadLink = githubApiUrl.replace("api.github.com/repos", "github.com");
             logger.info(String.format("[%s] New stable %s available. You are running an outdated or experimental %s.", pluginName, latestVersion, pluginVersion));
             logger.info(String.format("[%s] Download the latest stable version from: %s", pluginName, downloadLink));
-        } else {
-            logger.info(String.format("[%s] You are running the latest version.", pluginName));
-        }
+        } else logger.info(String.format("[%s] You are running the latest version.", pluginName));
     }
 }
