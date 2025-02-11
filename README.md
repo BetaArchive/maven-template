@@ -63,6 +63,7 @@ While the project may be compatible with other Integrated Development Environmen
 > 2. Update `src/main/resources/plugin.yml` with your plugin details.
 > 3. Update `settings.gradle` with your plugin name.
 
+### Build Project
 Once you finish developing your plugin, follow these steps to build your project using Gradle:
 
 1. **Open Gradle:** Click on the Gradle tab located in the right-side menu bar.
