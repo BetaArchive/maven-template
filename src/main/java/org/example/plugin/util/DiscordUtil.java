@@ -61,7 +61,7 @@ public final class DiscordUtil {
 
     public void execute() throws IOException {
         if (this.content == null && this.embeds.isEmpty()) {
-            logger.warning("Set content or add at least one EmbedObject!");
+            logger.warning("Set content or add at least one EmbedObject.");
         }
 
         JSONObject json = new JSONObject();
@@ -154,6 +154,7 @@ public final class DiscordUtil {
     }
 
     public static class EmbedObject {
+
         private String title;
         private String description;
         private String url;
@@ -246,6 +247,7 @@ public final class DiscordUtil {
         }
 
         private static class Footer {
+
             private final String text;
             private final String iconUrl;
 
@@ -264,6 +266,7 @@ public final class DiscordUtil {
         }
 
         private static class Thumbnail {
+
             private final String url;
 
             private Thumbnail(String url) {
@@ -276,6 +279,7 @@ public final class DiscordUtil {
         }
 
         private static class Image {
+
             private final String url;
 
             private Image(String url) {
@@ -288,6 +292,7 @@ public final class DiscordUtil {
         }
 
         private static class Author {
+
             private final String name;
             private final String url;
             private final String iconUrl;
@@ -312,6 +317,7 @@ public final class DiscordUtil {
         }
 
         private static class Field {
+
             private final String name;
             private final String value;
             private final boolean inline;
