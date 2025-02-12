@@ -49,7 +49,7 @@ public final class LogUtil {
      * create the file. If the file is successfully created, an informational log message is generated. If the file
      * creation fails, a severe log message is logged.
      */
-    public void initializeLog() {
+    public void initializeLogFile() {
         if (!logFile.exists()) {
             try {
                 if (logFile.createNewFile()) {
@@ -65,7 +65,7 @@ public final class LogUtil {
      * Writes text to the log file with an optional timestamp and a newline at the end.
      * <p>
      * This method appends the provided text to the log file, optionally prepending the current date and time.
-     * If the log file does not exist, ensure it has been initialized using {@link #initializeLog()} before calling this method.
+     * If the log file does not exist, ensure it has been initialized using {@link #initializeLogFile()} before calling this method.
      *
      * @param text        the text to write to the log file
      * @param logDateTime if {@code true}, prepends the current date and time to the log entry
