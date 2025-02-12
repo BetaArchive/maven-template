@@ -76,10 +76,10 @@ While the project may be compatible with other Integrated Development Environmen
 ### Build Project
 Once you finish developing your plugin, follow these steps to build your project using Gradle:
 
-1. **Open Gradle:** Click on the Gradle tab located in the right-side menu bar.
-2. **Locate the Build Task:** Expand the `Tasks/custom` section and double-click on the `cleanBuild` task to start your first build process.
-3. **Find Your Plugin's JAR:** After the build completes, a new `build` directory will appear in your project. Navigate to `build/libs` where you'll find your plugin's `.jar` file.
-4. **Ready To Be Used:** You can now drag and drop your plugin into the `plugins` directory of your Minecraft b1.7.3 server.
+1. Click on the Gradle tab located in the right-side menu bar.
+2. Expand the `Tasks/custom` section and double-click on the `cleanBuild` task to start your first clean build process.
+3. After the process completes, a new `build` directory will appear in your project. Navigate to `build/libs` where you'll find your plugin's `.jar` file.
+4. You can now drag and drop your plugin into the `plugins` directory of your Minecraft b1.7.3 server.
 
 > [!NOTE]
-> After every change to your plugin, you must run the `cleanBuild` task and then retrieve the updated `.jar` file from `build/libs`.
+> After every change to your plugin, you must run the `cleanBuild` task and then retrieve the updated `.jar` file from `build/libs`, ready to be used.
