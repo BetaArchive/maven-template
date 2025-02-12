@@ -71,7 +71,7 @@ While the project may be compatible with other Integrated Development Environmen
 > 1. Update package names `org.example.plugin` accordingly.
 > 2. Update `src/main/resources/plugin.yml` with your plugin details.
 > 3. Update `settings.gradle` with your plugin name.
-> 4. Additionally, if you plan on publishing this plugin to a repository, you should update the documents within `.github` accordingly.
+> 4. If you plan on publishing this plugin, you should update the documents within `.github` accordingly.
 
 ### Build Project
 Once you finish developing your plugin, follow these steps to build your project using Gradle:
