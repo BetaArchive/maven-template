@@ -35,15 +35,15 @@ For any issues with the template, or suggestions, please report them [here](http
 ---
 ## How To Clone
 1. **Via VCS**:
-    - Open IntelliJ IDEA.
-    - Go to `File > New > Project from Version Control`.
-    - If you're on the dashboard home screen of the IDE, click `CLONE FROM VCS` on the top-right button.
-    - In the `URL` field, paste the repository link:
+    - Open **IntelliJ IDEA**.
+    - Open **File > New > Project from Version Control**.
+    - If you're on the dashboard home screen of the IDE, click **CLONE FROM VCS** on the top-right button.
+    - In the **URL** field, paste the repository link:
       ```
       https://github.com/AleksandarHaralanov/gradle-plugin-template
       ```
     - Rename your project to have your desired plugin name.
-    - Click `Clone` to download the project.
+    - Click **Clone** to download the project.
 
 2. **Via Git**:
     - Open your terminal and run the following command:
@@ -68,18 +68,18 @@ While the project may be compatible with other Integrated Development Environmen
    - Click **Apply** and **OK**.
 
 > [!IMPORTANT]
-> 1. Update package names `org.example.plugin` accordingly.
-> 2. Update `src/main/resources/plugin.yml` with your plugin details.
-> 3. Update `settings.gradle` with your plugin name.
-> 4. If you plan on publishing this plugin, you should update the documents within `.github` accordingly.
+> - Update package names `org.example.plugin` accordingly.
+> - Update `src/main/resources/plugin.yml` with your plugin details.
+> - Update `settings.gradle` with your plugin name.
+> - If you plan on publishing this plugin, you should update the documents within `.github` accordingly.
 
 ### Build Project
 Once you finish developing your plugin, follow these steps to build your project using Gradle:
 
-1. Click on the Gradle tab located in the right-side menu bar.
-2. Expand the `Tasks/custom` section and double-click on the `cleanBuild` task to start your first clean build process.
-3. After the process completes, a new `build` directory will appear in your project. Navigate to `build/libs` where you'll find your plugin's `.jar` file.
-4. You can now drag and drop your plugin into the `plugins` directory of your Minecraft b1.7.3 server.
+- Click on the Gradle tab located in the right-side menu bar.
+- Expand the `Tasks/custom` section and double-click on the `cleanBuild` task to start your first clean build process.
+- After the process completes, a new `build` directory will appear in your project. Navigate to `build/libs` where you'll find your plugin's `.jar` file.
+- You can now drag and drop your plugin into the `plugins` directory of your Minecraft b1.7.3 server.
 
 > [!NOTE]
 > After every change to your plugin, you must run the `cleanBuild` task and then retrieve the updated `.jar` file from `build/libs`, ready to be used.
