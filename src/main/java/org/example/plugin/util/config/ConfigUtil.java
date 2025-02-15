@@ -1,4 +1,4 @@
-package org.example.plugin.util;
+package org.example.plugin.util.config;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;

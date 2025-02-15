@@ -1,4 +1,4 @@
-package org.example.plugin.util;
+package org.example.plugin.util.misc;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;

@@ -1,9 +1,10 @@
-package org.example.plugin.util;
+package org.example.plugin.util.auth;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.example.plugin.util.misc.ColorUtil;
 
 import java.util.logging.Logger;
 

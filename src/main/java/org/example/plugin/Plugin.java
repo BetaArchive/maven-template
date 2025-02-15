@@ -1,7 +1,7 @@
 package org.example.plugin;
 
 import org.bukkit.plugin.java.JavaPlugin;
-import org.example.plugin.util.LogUtil;
+import org.example.plugin.util.log.LogUtil;
 
 public class Plugin extends JavaPlugin {
 

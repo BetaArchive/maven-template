@@ -1,4 +1,4 @@
-package org.example.plugin.util;
+package org.example.plugin.util.misc;
 
 /**
  * Utility class for translating color codes in text to Minecraft's color code format.

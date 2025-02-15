@@ -1,4 +1,4 @@
-package org.example.plugin.util;
+package org.example.plugin.util.log;
 
 import org.bukkit.Bukkit;
 
