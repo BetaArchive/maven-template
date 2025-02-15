@@ -37,9 +37,12 @@ if (!nameMatcher.find()) {
     throw new GradleException("The 'name' attribute wasn't found in the 'plugin.yml' file.")
 }
 
+tasks.named('build') {
+    mustRunAfter 'clean'
+}
+
 tasks.register('cleanBuild') {
     dependsOn 'clean', 'build'
-    tasks.findByName('build').mustRunAfter 'clean'
     group = 'custom'
 }
 
