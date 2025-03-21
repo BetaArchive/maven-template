@@ -2,7 +2,7 @@
 A gradle template to use as a base for Minecraft b1.7.3 plugin development, including utility classes for common plugin tasks and convenience.
 
 ---
-## Utility Classes
+## Included Utility Classes
 - **[AboutUtil](https://github.com/AleksandarHaralanov/gradle-plugin-template/blob/master/src/main/java/org/example/plugin/util/misc/AboutUtil.java)**:
     - Provides methods to display detailed information about a plugin—including its name, version, description, website, author(s), and contributor(s)—to a player or the server console.
 
