@@ -1,5 +1,5 @@
-# Gradle Plugin Template
-<img src="https://skillicons.dev/icons?i=gradle" alt="Gradle" style="width:30px;">  A gradle template to use as a base for Minecraft b1.7.3 plugin development, including utility classes for common plugin tasks and convenience.
+<h1><a href="#"><img src="https://skillicons.dev/icons?i=gradle" alt="Gradle"></a> Gradle Plugin Template</h1> 
+A gradle template to use as a base for Minecraft b1.7.3 plugin development, including utility classes for common plugin tasks and convenience.
 
 ---
 ## Utility Classes
