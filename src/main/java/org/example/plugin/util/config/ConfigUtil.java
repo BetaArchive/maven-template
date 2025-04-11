@@ -64,7 +64,8 @@ public final class ConfigUtil extends Configuration {
         try {
             super.load();
         } catch (Exception e) {
-            logger.severe(String.format("[%s] Failed to load configuration '%s': %s", pluginName, configFile.getName(), e.getMessage()));
+            logger.severe(String.format("[%s] Failed to load configuration '%s': %s",
+                    pluginName, configFile.getName(), e.getMessage()));
         }
     }
 
@@ -78,7 +79,8 @@ public final class ConfigUtil extends Configuration {
         try {
             Files.createDirectories(configFile.getParentFile().toPath());
         } catch (IOException e) {
-            logger.severe(String.format("[%s] Failed to create default configuration directory: %s", pluginName, e.getMessage()));
+            logger.severe(String.format("[%s] Failed to create default configuration directory: %s",
+                    pluginName, e.getMessage()));
         }
     }
 
@@ -94,14 +96,15 @@ public final class ConfigUtil extends Configuration {
 
         try (InputStream input = getClass().getResourceAsStream(resourcePath)) {
             if (input == null) {
-                logger.severe(String.format("[%s] Default configuration '%s' wasn't found.", pluginName, configFile.getName()));
+                logger.severe(String.format("[%s] Default configuration '%s' wasn't found.",
+                        pluginName, configFile.getName()));
                 return;
             }
 
             Files.copy(input, configFile.toPath());
-            logger.info(String.format("[%s] Default configuration '%s' created successfully.", pluginName, configFile.getName()));
         } catch (IOException e) {
-            logger.severe(String.format("[%s] Failed to create default configuration '%s': %s", pluginName, configFile.getName(), e.getMessage()));
+            logger.severe(String.format("[%s] Failed to create default configuration '%s': %s",
+                    pluginName, configFile.getName(), e.getMessage()));
         }
     }
 
@@ -114,9 +117,11 @@ public final class ConfigUtil extends Configuration {
     public void loadAndLog() {
         try {
             this.load();
-            logger.info(String.format("[%s] Configuration '%s' loaded successfully.", pluginName, configFile.getName()));
+            logger.info(String.format("[%s] Configuration '%s' loaded successfully.",
+                    pluginName, configFile.getName()));
         } catch (Exception e) {
-            logger.severe(String.format("[%s] Failed to load configuration '%s': %s", pluginName, configFile.getName(), e.getMessage()));
+            logger.severe(String.format("[%s] Failed to load configuration '%s': %s",
+                    pluginName, configFile.getName(), e.getMessage()));
         }
     }
 
@@ -129,9 +134,11 @@ public final class ConfigUtil extends Configuration {
     public void saveAndLog() {
         try {
             this.save();
-            logger.info(String.format("[%s] Configuration '%s' saved successfully.", pluginName, configFile.getName()));
+            logger.info(String.format("[%s] Configuration '%s' saved successfully.",
+                    pluginName, configFile.getName()));
         } catch (Exception e) {
-            logger.severe(String.format("[%s] Failed to save configuration '%s': %s", pluginName, configFile.getName(), e.getMessage()));
+            logger.severe(String.format("[%s] Failed to save configuration '%s': %s",
+                    pluginName, configFile.getName(), e.getMessage()));
         }
     }
 }
