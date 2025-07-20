@@ -91,8 +91,8 @@ Once you finish developing your plugin, follow these steps to build your project
 - Navigate to `build/libs` where you'll find your plugin's `.jar` file.
 - You can now drag and drop your plugin into the `plugins` directory of your Minecraft b1.7.3 server.
 
-> [!NOTE]
-> After every change to your plugin, you should be running the `cleanBuild` task and then retrieve the updated `.jar` file from `build/libs`, ready to be used.
+> [!IMPORTANT]
+> When you plan to test your plugin again, after a change you've performed, you should be running the `cleanBuild` task and then retrieve the updated `.jar` file from `build/libs`, ready to be used.
 
 > [!TIP]
 > If you want to exclude your plugin's version, retrieved from `plugin.yml`, from the plugin `.jar` file name, edit the `archiveFileName` field in `build.gradle` to `"${project.name}.jar"`.
