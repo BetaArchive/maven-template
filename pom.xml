@@ -1,0 +1,113 @@
+<!-- pom.xml -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.example</groupId>
+  <artifactId>plugin</artifactId>
+  <version>1.0.0</version>
+  <name>ExamplePlugin</name>
+  <description>INSERT_DESCRIPTION</description>
+  <url>https://INSERT_WEBSITE</url>
+
+  <properties>
+    <!-- Pick the Java you want to compile against; 8 is safest for legacy CB jars -->
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- Set a reproducible final name like Gradle did -->
+    <finalName>${project.artifactId}-${project.version}</finalName>
+  </properties>
+
+  <build>
+    <finalName>${finalName}</finalName>
+
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+
+    <plugins>
+      <!-- Match Gradle’s manifest attributes -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.4.1</version>
+        <configuration>
+          <archive>
+            <manifestEntries>
+              <Implementation-Title>${project.name}</Implementation-Title>
+              <Implementation-Version>${project.version}</Implementation-Version>
+            </manifestEntries>
+          </archive>
+          <finalName>${finalName}</finalName>
+        </configuration>
+      </plugin>
+
+      <!-- Standard compiler setup -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+          <!-- If building on JDK 17/21/25 but still targeting 8 bytecode, use release:
+               <release>8</release>
+               (and remove <source>/<target>) -->
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <!-- Mirrors Gradle's 'implementation files("libs/craftbukkit-1060.jar")' -->
+    <dependency>
+      <groupId>org.bukkit</groupId>
+      <artifactId>craftbukkit</artifactId>
+      <version>1060</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/libs/craftbukkit-1060.jar</systemPath>
+    </dependency>
+  </dependencies>
+
+  <!-- Optional profile: copy the built jar to a plugins folder like your Gradle task did -->
+  <profiles>
+    <profile>
+      <id>copy-to-plugins</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>3.7.1</version>
+            <executions>
+              <execution>
+                <id>copy-plugin-jar</id>
+                <phase>package</phase>
+                <goals><goal>copy</goal></goals>
+                <configuration>
+                  <artifactItems>
+                    <artifactItem>
+                      <groupId>${project.groupId}</groupId>
+                      <artifactId>${project.artifactId}</artifactId>
+                      <version>${project.version}</version>
+                      <type>jar</type>
+                      <destFileName>${finalName}.jar</destFileName>
+                    </artifactItem>
+                  </artifactItems>
+                  <!-- Set this env/system prop to your server's plugins dir -->
+                  <outputDirectory>${env.PLUGINS_DIR}</outputDirectory>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>
